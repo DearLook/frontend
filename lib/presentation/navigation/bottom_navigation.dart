@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:dearlook/core/styles/color_styles.dart';
 import 'package:dearlook/core/routing/route_paths.dart';
@@ -26,7 +27,7 @@ class BottomNavigation extends StatelessWidget {
           height: 80,
           child: Stack(
             clipBehavior: Clip.none,
-            alignment: Alignment.center,
+            alignment: Alignment.bottomCenter,
             children: [
               Container(
                 width: 250,
@@ -49,7 +50,7 @@ class BottomNavigation extends StatelessWidget {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: _BottomNavItem(
-                          icon: Icons.home_rounded,
+                          iconPath: 'assets/icons/home.svg',
                           isSelected: currentPageIndex == 0,
                           selectedColor: ColorStyles.black,
                           unselectedColor: ColorStyles.grayB8,
@@ -62,7 +63,7 @@ class BottomNavigation extends StatelessWidget {
                       child: Align(
                         alignment: Alignment.centerRight,
                         child: _BottomNavItem(
-                          icon: Icons.person_rounded,
+                          iconPath: 'assets/icons/mypage.svg',
                           isSelected: currentPageIndex == 1,
                           selectedColor: ColorStyles.black,
                           unselectedColor: ColorStyles.grayB8,
@@ -85,10 +86,16 @@ class BottomNavigation extends StatelessWidget {
                       color: ColorStyles.pointE5,
                       shape: BoxShape.circle,
                     ),
-                    child: const Icon(
-                      Icons.auto_awesome,
-                      color: Colors.white,
-                      size: 24,
+                    child: Center(
+                      child: SvgPicture.asset(
+                        'assets/icons/navigation_img.svg',
+                        width: 24,
+                        height: 24,
+                        colorFilter: const ColorFilter.mode(
+                          ColorStyles.white,
+                          BlendMode.srcIn,
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -102,14 +109,14 @@ class BottomNavigation extends StatelessWidget {
 }
 
 class _BottomNavItem extends StatelessWidget {
-  final IconData icon;
+  final String iconPath;
   final bool isSelected;
   final Color selectedColor;
   final Color unselectedColor;
   final VoidCallback onTap;
 
   const _BottomNavItem({
-    required this.icon,
+    required this.iconPath,
     required this.isSelected,
     required this.selectedColor,
     required this.unselectedColor,
@@ -129,10 +136,14 @@ class _BottomNavItem extends StatelessWidget {
           onTap: onTap,
           child: Padding(
             padding: const EdgeInsets.all(8),
-            child: Icon(
-              icon,
-              size: 24,
-              color: isSelected ? selectedColor : unselectedColor,
+            child: SvgPicture.asset(
+              iconPath,
+              width: 24,
+              height: 24,
+              colorFilter: ColorFilter.mode(
+                isSelected ? selectedColor : unselectedColor,
+                BlendMode.srcIn,
+              ),
             ),
           ),
         ),
