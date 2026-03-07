@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:dearlook/core/routing/route_paths.dart';
 import 'package:dearlook/presentation/dummy/dummy_screen.dart';
 import 'package:dearlook/presentation/navigation/bottom_navigation.dart';
-import 'package:dearlook/presentation/setting/mypage_screen.dart';
+import 'package:dearlook/presentation/setting/setting_screen.dart';
 import 'package:dearlook/presentation/home/home_screen.dart';
 
 final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey<NavigatorState>();
