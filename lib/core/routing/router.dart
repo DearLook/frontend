@@ -1,9 +1,9 @@
-import 'package:dearlook/core/routing/route_paths.dart';
-import 'package:dearlook/presentation/dummy/dummy_screen.dart';
-import 'package:dearlook/presentation/mypage/mypage_screen.dart';
-import 'package:dearlook/presentation/navigation/bottom_navigation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
+import 'package:dearlook/core/routing/route_paths.dart';
+import 'package:dearlook/presentation/dummy/dummy_screen.dart';
+import 'package:dearlook/presentation/navigation/bottom_navigation.dart';
+import 'package:dearlook/presentation/setting/mypage_screen.dart';
 import 'package:dearlook/presentation/home/home_screen.dart';
 
 final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -43,8 +43,8 @@ final router = GoRouter(
         StatefulShellBranch(
           routes: [
             GoRoute(
-                path: RoutePaths.mypage,
-                builder: (context, state) => MypageScreen()
+                path: RoutePaths.setting,
+                builder: (context, state) => SettingScreen()
             ),
           ],
         ),
