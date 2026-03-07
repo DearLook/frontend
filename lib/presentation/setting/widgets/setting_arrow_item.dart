@@ -27,7 +27,7 @@ class SettingArrowItem extends StatelessWidget {
               Expanded(
                 child: Text(
                   title,
-                  style: TextStyles.smallTextMedium.copyWith(
+                  style: TextStyles.normalTextMedium.copyWith(
                     color: ColorStyles.gray6B,
                   ),
                 ),

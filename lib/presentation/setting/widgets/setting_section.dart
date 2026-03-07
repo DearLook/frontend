@@ -26,12 +26,12 @@ class SettingSection extends StatelessWidget {
         children: [
           Text(
             title,
-            style: TextStyles.normalTextMedium.copyWith(
-              color: ColorStyles.gray46,
+            style: TextStyles.largeTextMedium.copyWith(
+              color: ColorStyles.black,
             ),
           ),
           const SizedBox(height: 8),
-          Divider(color: ColorStyles.grayB8, height: 1,),
+          Divider(color: ColorStyles.grayD7, height: 1,),
           const SizedBox(height: 8),
           ...children,
         ],

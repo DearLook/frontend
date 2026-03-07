@@ -21,14 +21,14 @@ class SettingValueItem extends StatelessWidget {
           Expanded(
             child: Text(
               title,
-              style: TextStyles.smallTextMedium.copyWith(
+              style: TextStyles.normalTextMedium.copyWith(
                 color: ColorStyles.gray6B,
               ),
             ),
           ),
           Text(
             value,
-            style: TextStyles.smallTextMedium.copyWith(
+            style: TextStyles.normalTextMedium.copyWith(
               color: ColorStyles.gray6B,
             ),
           ),

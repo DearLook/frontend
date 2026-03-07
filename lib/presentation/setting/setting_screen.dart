@@ -17,12 +17,12 @@ class SettingScreen extends HookConsumerWidget {
     return Scaffold(
       backgroundColor: ColorStyles.grayF3,
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(56),
+        preferredSize: const Size.fromHeight(48),
         child: AppBar(
           backgroundColor: ColorStyles.grayF3,
           title: Text(
             '설정',
-            style: TextStyles.largeTextMedium.copyWith(
+            style: TextStyles.titleTextMedium.copyWith(
               color: ColorStyles.black,
             ),
           ),
@@ -31,7 +31,7 @@ class SettingScreen extends HookConsumerWidget {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
           child: Column(
             spacing: 16,
             children: [
@@ -48,7 +48,6 @@ class SettingScreen extends HookConsumerWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 16),
               const SettingSection(
                 title: '버전 정보',
                 children: [
@@ -58,7 +57,6 @@ class SettingScreen extends HookConsumerWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 16),
               const SettingSection(
                 title: '고객 지원',
                 children: [

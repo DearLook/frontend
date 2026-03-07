@@ -51,7 +51,7 @@ class BottomNavigation extends StatelessWidget {
                         child: _BottomNavItem(
                           icon: Icons.home_rounded,
                           isSelected: currentPageIndex == 0,
-                          selectedColor: ColorStyles.gray46,
+                          selectedColor: ColorStyles.black,
                           unselectedColor: ColorStyles.grayB8,
                           onTap: () => onChangeIndex(0),
                         ),
@@ -64,7 +64,7 @@ class BottomNavigation extends StatelessWidget {
                         child: _BottomNavItem(
                           icon: Icons.person_rounded,
                           isSelected: currentPageIndex == 1,
-                          selectedColor: ColorStyles.gray46,
+                          selectedColor: ColorStyles.black,
                           unselectedColor: ColorStyles.grayB8,
                           onTap: () => onChangeIndex(1),
                         ),
