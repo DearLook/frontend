@@ -1,4 +1,4 @@
-name: ReLog Android CI
+name: DearLook Android CI
 
 on:
   pull_request:
@@ -36,42 +36,6 @@ jobs:
           java-version: '17'
           cache: 'gradle'
 
-      - name: Decode and create .env file
-        run: |
-          echo "${{ secrets.ENV_B64 }}" | base64 --decode > .env
-
-      - name: Create android/local.properties
-        run: |
-          mkdir -p android
-          SDK_DIR="${ANDROID_SDK_ROOT:-$ANDROID_HOME}"
-          test -n "$SDK_DIR" || (echo "❌ ANDROID_SDK_ROOT/ANDROID_HOME not set" && exit 1)
-          echo "sdk.dir=$SDK_DIR" > android/local.properties
-          echo "KAKAO_NATIVE_APP_KEY=${{ secrets.KAKAO_NATIVE_APP_KEY }}" >> android/local.properties
-          echo "local.properties created at android/local.properties"
-          cat android/local.properties | sed 's/KAKAO_NATIVE_APP_KEY=.*/KAKAO_NATIVE_APP_KEY=***REDACTED***/' 
-
-      - name: Decode firebase.json
-        run: |
-          echo "${{ secrets.FIREBASE_JSON_B64 }}" | base64 --decode > firebase.json
-
-      - name: Decode firebase_options.dart
-        run: |
-          mkdir -p lib
-          echo "${{ secrets.FIREBASE_OPTIONS_DART_B64 }}" | base64 --decode > lib/firebase_options.dart
-
-      - name: Decode google-services.json
-        run: |
-          mkdir -p android/app
-          echo "${{ secrets.GOOGLE_SERVICES_JSON_B64 }}" | base64 --decode > android/app/google-services.json
-
-      - name: Verify decoded files
-        run: |
-          test -f .env || (echo "❌ Missing .env" && exit 1)
-          test -f firebase.json || (echo "❌ Missing firebase.json" && exit 1)
-          test -f lib/firebase_options.dart || (echo "❌ Missing lib/firebase_options.dart" && exit 1)
-          test -f android/app/google-services.json || (echo "❌ Missing android/app/google-services.json" && exit 1)
-          test -f android/local.properties || (echo "❌ Missing android/local.properties" && exit 1)
-
       - name: Install dependencies
         run: |
           flutter clean
@@ -94,7 +58,7 @@ jobs:
       - name: Upload APK as Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ReLog-android-apk-${{ github.run_number }}
+          name: DearLook-android-apk-${{ github.run_number }}
           path: build/app/outputs/flutter-apk/app-debug.apk
           retention-days: 7
 
@@ -105,4 +69,4 @@ jobs:
           echo "📦 Artifacts uploaded to GitHub Actions"
           echo "⬇️ Download from: Actions tab > Artifacts"
           echo "🔗 Build #${{ github.run_number }}"
-          echo "📁 Artifact name: ReLog-android-apk-${{ github.run_number }}"
+          echo "📁 Artifact name: DearLook-android-apk-${{ github.run_number }}"
