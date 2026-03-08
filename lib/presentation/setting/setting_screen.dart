@@ -1,7 +1,7 @@
+import 'package:dearlook/core/presentation/components/detail_header.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:dearlook/core/styles/color_styles.dart';
-import 'package:dearlook/core/styles/text_styles.dart';
 import 'package:dearlook/presentation/setting/widgets/setting_arrow_item.dart';
 import 'package:dearlook/presentation/setting/widgets/setting_section.dart';
 import 'package:dearlook/presentation/setting/widgets/setting_value_item.dart';
@@ -16,18 +16,10 @@ class SettingScreen extends HookConsumerWidget {
 
     return Scaffold(
       backgroundColor: ColorStyles.grayF3,
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(48),
-        child: AppBar(
-          backgroundColor: ColorStyles.grayF3,
-          title: Text(
-            '설정',
-            style: TextStyles.titleTextMedium.copyWith(
-              color: ColorStyles.black,
-            ),
-          ),
-          centerTitle: false,
-        ),
+      appBar: DetailHeader(
+        title: '설정',
+        backgroundColor: ColorStyles.grayF3,
+        showBackButton: false,
       ),
       body: SafeArea(
         child: SingleChildScrollView(
