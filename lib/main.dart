@@ -18,9 +18,9 @@ class MyApp extends ConsumerWidget {
         scaffoldBackgroundColor: ColorStyles.white,
         useMaterial3: true,
         textSelectionTheme: TextSelectionThemeData(
-          selectionColor: ColorStyles.grayA3.withValues(alpha: 0.4), // 선택된 영역 배경색
-          cursorColor: ColorStyles.grayA3, // 커서 색상
-          selectionHandleColor: ColorStyles.grayA3, // 핸들 색상
+          selectionColor: ColorStyles.gray72.withValues(alpha: 0.4), // 선택된 영역 배경색
+          cursorColor: ColorStyles.gray72, // 커서 색상
+          selectionHandleColor: ColorStyles.gray72, // 핸들 색상
         ),
         appBarTheme: AppBarTheme(
           shadowColor: Colors.transparent,
