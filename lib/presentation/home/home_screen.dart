@@ -16,7 +16,7 @@ class HomeScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final today = DateUtils.dateOnly(DateTime.now());
+    final today = useMemoized(() => DateUtils.dateOnly(DateTime.now()));
     final selectedDate = useState<DateTime>(today);
     final pageController = usePageController(initialPage: _initialPage);
 
