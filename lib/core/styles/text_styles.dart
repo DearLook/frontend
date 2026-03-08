@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 abstract class TextStyles {
   static TextStyle titleTextBold = const TextStyle(
     fontFamily: 'Pretendard',
-    fontSize: 22,
+    fontSize: 19,
     fontWeight: FontWeight.w700,
   );
   static TextStyle largeTextBold = const TextStyle(
@@ -24,7 +24,7 @@ abstract class TextStyles {
 
   static TextStyle titleTextMedium = const TextStyle(
     fontFamily: 'Pretendard',
-    fontSize: 22,
+    fontSize: 19,
     fontWeight: FontWeight.w500,
   );
   static TextStyle largeTextMedium = const TextStyle(
