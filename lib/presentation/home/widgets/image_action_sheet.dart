@@ -1,15 +1,26 @@
 import 'package:flutter/cupertino.dart';
+import 'package:image_picker/image_picker.dart';
 
-void showImageActionSheet(BuildContext context) {
+void showImageActionSheet({
+  required BuildContext context,
+  required Function(XFile?) onImageSelected,
+}) {
+  final ImagePicker picker = ImagePicker();
+
   showCupertinoModalPopup(
     context: context,
     builder: (context) {
       return CupertinoActionSheet(
         actions: [
           CupertinoActionSheetAction(
-            onPressed: () {
+            onPressed: () async {
               Navigator.pop(context);
-              // 사진 촬영 로직
+              // 계정 확인 및 테스트 필요
+              final XFile? image = await picker.pickImage(
+                source: ImageSource.camera,
+                imageQuality: 80,
+              );
+              onImageSelected(image);
             },
             child: const Text(
               '사진 촬영',
@@ -17,9 +28,12 @@ void showImageActionSheet(BuildContext context) {
             ),
           ),
           CupertinoActionSheetAction(
-            onPressed: () {
+            onPressed: () async {
               Navigator.pop(context);
-              // 앨범 선택 로직
+              final XFile? image = await picker.pickImage(
+                source: ImageSource.gallery,
+              );
+              onImageSelected(image);
             },
             child: const Text(
               '앨범에서 선택',

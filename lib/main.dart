@@ -14,7 +14,7 @@ class MyApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp.router(
       theme: ThemeData(
-        colorScheme: ColorScheme.dark(),
+        colorScheme: ColorScheme.light(),
         scaffoldBackgroundColor: ColorStyles.white,
         useMaterial3: true,
         textSelectionTheme: TextSelectionThemeData(

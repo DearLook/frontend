@@ -1,7 +1,11 @@
+import 'package:dearlook/core/routing/route_paths.dart';
+import 'package:dearlook/presentation/home/widgets/image_action_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:dearlook/core/styles/color_styles.dart';
 import 'package:dearlook/core/styles/text_styles.dart';
+import 'package:go_router/go_router.dart';
+import 'package:image_picker/image_picker.dart';
 
 class EmptyOotdView extends StatelessWidget {
   const EmptyOotdView({super.key});
@@ -34,21 +38,33 @@ class EmptyOotdView extends StatelessWidget {
                 height: 1.4,
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  '이미지 등록',
-                  style: TextStyles.smallTextBold.copyWith(
+            GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: () => showImageActionSheet(
+                context: context,
+                onImageSelected: (XFile? image) {
+                  if (image != null) {
+                    context.push(RoutePaths.ootd, extra: image);
+                  }
+                },
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    '이미지 등록',
+                    style: TextStyles.smallTextBold.copyWith(
+                      color: ColorStyles.pointC9,
+                    ),
+                  ),
+                  const Icon(
+                    Icons.chevron_right,
+                    size: 16,
                     color: ColorStyles.pointC9,
                   ),
-                ),
-                const Icon(
-                  Icons.chevron_right,
-                  size: 16,
-                  color: ColorStyles.pointC9,
-                ),
-              ],
+                ],
+              ),
             ),
           ],
         ),
